@@ -1,0 +1,13 @@
+import.util.Scanner
+public class Average{
+    public static void main(String[] args){
+        Scanner number1= new Scanner(System.in);
+        System.out.println("Enter an integer");
+        Scanner number2= new Scanner(System.in);
+        System.out.println("Enter another integer")
+        Scanner number3= new Scanner (System.in);
+        System.out.println(Enter another integer");
+        Scanner number4= new Scanner(System.in);
+        System.out.println("Enter another integer")
+    }
+}
