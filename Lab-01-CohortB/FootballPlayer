@@ -1,0 +1,33 @@
+import java.util.Scanner;
+\\ This code accepts the players details
+
+public class FootballPlayer{
+    public static void main(String [] args){
+        Scanner input= new Scanner(System.in);
+        String name;
+        int age, jerseyNumber;
+        double heght, weight;
+
+        System.out.println("Enter player's name: ");
+        name= input.nextline();
+        System.out.println("Enter the player's age: ");
+        age=input.nextInt();
+        System.out.println("Enter the height of the player in meters: ");
+        height=input.nextDouble():
+        System.out.println("Enter the weight of the player in  pounds(lbs): ");
+        weight=input.nextDouble();
+        System.out.println("Enter the jersey number of the player: ");
+        jerseyNumber=input.nextInt();
+
+        System.out.println("Player Name-"+name);
+        System.out.println("Age-"+age);
+        System.out.println("Height-"+height+"m");
+        System.out.println("Weight-"+weight+"lbs");
+        System.println("Jersey Number-"+jerseyNumber);
+
+\\task 2
+        double pound=0.45359237;
+        int meter=100;
+        
+    }
+}

@@ -1,0 +1,144 @@
+import java.util.Scanner;
+// This code accepts the player's details
+
+public class FootballPlayer {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String name;
+        int age, jerseyNumber;
+        double height, weight;
+
+        System.out.println("Enter player's name: ");
+        name = input.nextLine();
+        System.out.println("Enter the player's age: ");
+        age = input.nextInt();
+        System.out.println("Enter the height of the player in meters: ");
+        height = input.nextDouble();
+        System.out.println("Enter the weight of the player in pounds(lbs): ");
+        weight = input.nextDouble();
+        System.out.println("Enter the jersey number of the player: ");
+        jerseyNumber = input.nextInt();
+
+        System.out.println("Player Name - " + name);
+        System.out.println("Age - " + age);
+        System.out.println("Height - " + height + "m");
+        System.out.println("Weight - " + weight + "lbs");
+        System.out.println("Jersey Number - " + jerseyNumber);
+
+        // Task 2
+        double pound = 0.45359237;
+        int meter = 100;
+        double weightInKgs = weight * pound;
+        double heightInCms = height * meter;
+
+        System.out.println("Player Name - " + name);
+        System.out.println("Age - " + age);
+        System.out.println("Height - " + heightInCms + "cm");
+        System.out.println("Weight - " + weightInKgs + "kg");
+        System.out.println("Jersey Number - " + jerseyNumber);
+
+        // Task 3
+        age++;
+        jerseyNumber--;
+        System.out.println("Player " + name + " is now " + age + " since the season changed");
+        System.out.println("There has been a penalty changing jersey player to " + jerseyNumber);
+        System.out.println("Player Name - " + name);
+        System.out.println("Age - " + age);
+        System.out.println("Jersey Number - " + jerseyNumber);
+
+        // Task 4 – Eligibility
+        if ((age >= 18) && (age <= 35) && (weight < 90)) {
+            System.out.println("Eligible");
+        } else {
+            System.out.println("Not Eligible");
+        }
+
+        if ((age < 18) || (age > 35) || (weight >= 90)) {
+            System.out.println("Player has a problem (either too young or too heavy)");
+        } else {
+            System.out.println("Eligible");
+        }
+
+        if (!((age >= 18) && (age <= 35) && (weight < 90))) {
+            System.out.println("Not Eligible");
+        } else {
+            System.out.println("Eligible");
+        }
+
+        // Task 5 – Categorize
+        if (age < 20) {
+            System.out.println("Rising Star");
+        } else if (age <= 30) {
+            System.out.println("Prime Player");
+        } else {
+            System.out.println("Veteran");
+        }
+
+        // Task 6 – Switch (position)
+        switch (jerseyNumber) {
+            case 1:
+                System.out.println("Goalkeeper");
+                break;
+            case 2:
+            case 5:
+                System.out.println("Defender");
+                break;
+            case 6:
+            case 8:
+                System.out.println("Midfielder");
+                break;
+            case 7:
+            case 11:
+                System.out.println("Winger");
+                break;
+            case 9:
+                System.out.println("Striker");
+                break;
+            case 10:
+                System.out.println("Playmaker");
+                break;
+            default:
+                System.out.println("Player position not known");
+        }
+
+        // Task 7 – Fall-through demo
+        switch (jerseyNumber) {
+            case 1:
+                System.out.println("Goalkeeper");
+                break;
+            case 2:   // no break → fall-through
+                System.out.println("Defender");
+            case 6:   // no break → fall-through
+                System.out.println("Midfielder");
+            case 7:   // no break → fall-through
+                System.out.println("Winger");
+                break;
+            case 9:
+                System.out.println("Striker");
+                break;
+            case 10:
+                System.out.println("Playmaker");
+                break;
+            case 11:
+                System.out.println("Winger");
+                break;
+            default:
+                System.out.println("Player position not known");
+        }
+
+        // Task 8 – Nested ifs
+        if (age >= 20 && age <= 30) {   // Prime Player category
+            if (weight < 80) {
+                System.out.println("Selected for Starting Lineup");
+            } else {
+                System.out.println("On the Bench");
+            }
+        } else {
+            System.out.println("On the Bench");
+        }
+
+        // Task 9 – Ternary operator
+        String finalStatus = ((age >= 18) && (age <= 35) && (weight < 90)) ? "Play" : "Rest";
+        System.out.println("Final Decision: " + finalStatus);
+    }
+}

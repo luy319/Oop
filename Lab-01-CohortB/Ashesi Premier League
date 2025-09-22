@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class PlayerSelection {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter player's name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter player's age: ");
+        int age = input.nextInt();
+
+        System.out.print("Enter player's height (in meters): ");
+        double height = input.nextDouble();
+
+        System.out.print("Enter player's weight (in pounds): ");
+        double weight = input.nextDouble();
+
+        System.out.print("Enter player's jersey number: ");
+        int jerseyNumber = input.nextInt();
+
+        double pound = 0.45359237;
+        int meter = 100;
+        double weightInKgs = weight * pound;
+        double heightInCms = height * meter;
+
+        String category;
+        if (age < 20) {
+            category = "Rising Star";
+        } else if (age <= 30) {
+            category = "Prime Player";
+        } else {
+            category = "Veteran";
+        }
+
+        String position;
+        switch (jerseyNumber) {
+            case 1:
+                position = "Goalkeeper";
+                break;
+            case 2:
+            case 5:
+                position = "Defender";
+                break;
+            case 6:
+            case 8:
+                position = "Midfielder";
+                break;
+            case 7:
+            case 11:
+                position = "Winger";
+                break;
+            case 9:
+                position = "Striker";
+                break;
+            case 10:
+                position = "Playmaker";
+                break;
+            default:
+                position = "Player position not known";
+        }
+
+        String attacker = (jerseyNumber == 7 || jerseyNumber == 9 || jerseyNumber == 10 || jerseyNumber == 11) ? "Yes" : "No";
+
+        boolean eligible = (age >= 18 && age <= 35 && weightInKgs < 90);
+
+        String lineupDecision;
+        if (category.equals("Prime Player")) {
+            if (weightInKgs < 80) {
+                lineupDecision = "Starting Lineup";
+            } else {
+                lineupDecision = "Bench";
+            }
+        } else {
+            lineupDecision = "Bench";
+        }
+
+        String finalDecision = eligible ? "Play" : "Rest";
+
+        System.out.println("\n--- Player Report ---");
+        System.out.println("Player: " + name);
+        System.out.println("Age: " + age + " (" + category + ")");
+        System.out.println("Height: " + heightInCms + " cm");
+        System.out.println("Weight: " + weightInKgs + " kg");
+        System.out.println("Jersey: " + jerseyNumber);
+        System.out.println("Position: " + position);
+        System.out.println("Attacker jersey: " + attacker);
+        System.out.println("Eligibility: " + (eligible ? "Eligible" : "Not Eligible"));
+        System.out.println("Lineup Decision: " + lineupDecision);
+        System.out.println("Final Decision: " + finalDecision);
+
+        System.out.println("\n--- Fall-through Demo ---");
+        switch (jerseyNumber) {
+            case 2:
+                System.out.println("Defender");
+            case 6:
+                System.out.println("Midfielder");
+            case 7:
+                System.out.println("Winger");
+                break;
+            default:
+                System.out.println("Other position");
+        }
+    }
+}
